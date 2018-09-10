@@ -1,0 +1,27 @@
+<li>
+  <div class="collection-item" [ngStyle]="{'padding-left.px':getIndent()}">
+    <label>
+      <input [(ngModel)]="item.value" ngModel="item.value" (keyup.enter)="onValueChange()" (blur)="onValueChange()">
+    </label>
+    <span [ngStyle]="{'visibility':isVisible}">(sum: {{item.sum}})</span>
+    <a href="#" class="secondary-content" matTooltip="Add child item" matTooltipPosition="above">
+      <i class="material-icons" (click)="onAdd()">add</i>
+    </a>
+    <a href="#" class="secondary-content" matTooltip="Remove this item" matTooltipPosition="above">
+      <i class="material-icons" (click)="onRemove()" *ngIf="item.level != 0">remove</i>
+    </a>
+    <a href="#" class="secondary-content" matTooltip="Move this item" matTooltipPosition="above">
+      <i class="material-icons" (click)="onMove()" *ngIf="item.level != 0">redo</i>
+    </a>
+    <a href="#" class="secondary-content" matTooltip="Copy this item" matTooltipPosition="above">
+      <i class="material-icons" (click)="onCopy()">content_copy</i>
+    </a>
+    <a href="#" class="secondary-content" matTooltip="Paste here" matTooltipPosition="above"><i class="material-icons"
+                                                                                                (click)="onPaste()"
+                                                                                                *ngIf="pasteVisible">content_paste</i></a>
+  </div>
+  <ul>
+    <app-tree-item *ngFor="let subItem of item.children" [item]="subItem"
+                   (removeEmitter)="onRemoveReceive($event)"></app-tree-item>
+  </ul>
+</li>

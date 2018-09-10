@@ -1,0 +1,13 @@
+ol {
+  padding: 20px;
+}
+
+button#cancelPastingBtn {
+  float: right;
+}
+
+button#addItemBtn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

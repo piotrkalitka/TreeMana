@@ -1,0 +1,7 @@
+<div id="uiTree" *ngIf="item != null">
+  <ul class="collection">
+    <app-tree-item [item]="getItem()"></app-tree-item>
+  </ul>
+</div>
+<button mat-button *ngIf="item == null" (click)="addFirstItem()" id="addItemBtn"><i class="material-icons">add</i>Add first item</button>
+<button mat-button *ngIf="cancelPasteVisible" (click)="cancelPaste()" id="cancelPastingBtn"><i class="material-icons">close</i>Cancel pasting</button>
